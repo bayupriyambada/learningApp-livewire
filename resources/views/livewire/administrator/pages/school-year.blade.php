@@ -128,7 +128,13 @@
                                 @enderror
                             </span>
                         </div>
+
                         <div class="mb-3" wire:ignore>
+                            <label for="isActive">
+                                Click this to highlight the single select element
+
+                                <select class="js-example-basic-single js-states form-control" id="isActive"></select>
+                            </label>
                             <div class="form-label">Select</div>
                             <select class="form-select js-example-responsive" style="width: 100%" wire:model="is_active"
                                 id="isActive">
@@ -246,15 +252,11 @@
 
 @push('js')
     <script>
-        document.addEventListener('livewire:load', function() {
-            // Get the value of the "count" property
-            $(document).ready(function() {
-                $('#isActive').select2();
-                $('#isActive').on('change', function(e) {
-                    var data = $('#isActive').select2("val");
-                    @this.set('is_active', data);
-                });
-            });
-        })
+        window.addEventListener('showModal', event => {
+        $('#actionModal').modal('show');
+        $('#permissaoList').select2({
+            width: '100%'
+        });
+    });
     </script>
 @endpush
