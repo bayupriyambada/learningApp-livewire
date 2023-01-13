@@ -7,6 +7,9 @@
 @push('js')
     <script>
         $(window).on('hidden.bs.modal', function() {
+            $('#isActive').select2({
+                width: '100%'
+            });
             Livewire.emit('resetForms');
         });
 
